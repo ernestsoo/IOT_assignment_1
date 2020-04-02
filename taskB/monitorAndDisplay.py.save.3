@@ -1,0 +1,21 @@
+from sense_hat import SenseHat
+from time import sleep
+
+sense = SenseHat()
+sense.clear()
+
+
+# Colour Initialization
+red = (255, 0, 0)
+
+
+while True:
+  sense.clear()
+  temperature = sense.get_temperature()
+  sense.set_pixels(red)
+ 
+ 
+
+
+  
+  

@@ -1,0 +1,128 @@
+from sense_hat import SenseHat
+from time import sleep
+
+import random
+
+# init Sense Hat
+sense = SenseHat()
+
+# init colours for dice
+e = (0, 0, 0) # empty pixels
+x = (255, 0, 0,) # red
+
+# init pixel displays for dice
+one = [
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, x, x, e, e, e,
+   e, e, e, x, x, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e
+]
+two = [
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, x, x, e,
+   e, e, e, e, e, x, x, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, x, x, e, e, e, e, e,
+   e, x, x, e, e, e, e, e,
+   e, e, e, e, e, e, e, e
+]
+three = [
+   e, e, e, e, e, e, x, x,
+   e, e, e, e, e, e, x, x,
+   e, e, e, e, e, e, e, e,
+   e, e, e, x, x, e, e, e,
+   e, e, e, x, x, e, e, e,
+   e, e, e, e, e, e, e, e,
+   x, x, e, e, e, e, e, e,
+   x, x, e, e, e, e, e, e
+]
+four = [
+   e, e, e, e, e, e, e, e,
+   e, x, x, e, e, x, x, e,
+   e, x, x, e, e, x, x, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, x, x, e, e, x, x, e,
+   e, x, x, e, e, x, x, e,
+   e, e, e, e, e, e, e, e
+]
+five = [
+   x, x, e, e, e, e, x, x,
+   x, x, e, e, e, e, x, x,
+   e, e, e, e, e, e, e, e,
+   e, e, e, x, x, e, e, e,
+   e, e, e, x, x, e, e, e,
+   e, e, e, e, e, e, e, e,
+   x, x, e, e, e, e, x, x,
+   x, x, e, e, e, e, x, x
+]
+six = [
+   e, x, x, e, e, x, x, e,
+   e, x, x, e, e, x, x, e,
+   e, e, e, e, e, e, e, e,
+   e, x, x, e, e, x, x, e,
+   e, x, x, e, e, x, x, e,
+   e, e, e, e, e, e, e, e,
+   e, x, x, e, e, x, x, e,
+   e, x, x, e, e, x, x, e
+]
+
+gen = random.randint(1,7)
+
+display = one
+
+if gen == 1:
+  display = one
+elif gen == 2:
+  display = two
+elif gen == 3:
+  display = three
+elif gen == 4:
+  display = four
+elif gen == 5:
+  display = five
+elif gen == 6:
+  display == six 
+
+sense.set_pixels(display)
+
+
+
+while True:
+    acceleration = sense.get_accelerometer_raw()
+    x = acceleration['x']
+    y = acceleration['y']
+    z = acceleration['z']
+
+    x = abs(x)
+    y = abs(y)
+    z = abs(z)
+
+    if x > 1 or y > 1 or z > 1:
+      
+      sleep(1)
+  
+      gen = random.randint(1,7)
+
+      display = one
+
+      if gen == 1:
+        display = one
+      elif gen == 2:
+        display = two
+      elif gen == 3:
+        display = three
+      elif gen == 4:
+        display = four
+      elif gen == 5:
+        display = five
+      elif gen == 6:
+        display == six
+
+      sense.set_pixels(display)
+      sleep(3)

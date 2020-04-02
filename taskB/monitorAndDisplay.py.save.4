@@ -1,0 +1,36 @@
+from sense_hat import SenseHat
+from time import sleep
+import json
+with open('path_to_file/person.json') as f:
+  data = json.load(f)
+sense = SenseHat()
+sense.clear()
+
+
+# Colour Initialization
+e = (0, 0, 0)  #empty pixel
+r = (255, 0, 0) #red
+b = (0, 181, 204) #blue
+g = (41, 241, 195) #green
+
+
+while True:
+  sense.clear()
+  temperature = sense.get_temperature()  
+
+  x = r
+
+  display = [
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e,
+   e, e, x, x, x, x, e, e,
+   e, e, x, x, x, x, e, e,
+   e, e, x, x, x, x, e, e,
+   e, e, x, x, x, x, e, e,
+   e, e, e, e, e, e, e, e,
+   e, e, e, e, e, e, e, e
+  ]
+
+  sense.set_pixels(display)
+
+  sleep(10)
