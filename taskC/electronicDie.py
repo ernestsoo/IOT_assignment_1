@@ -72,57 +72,41 @@ six = [
    e, x, x, e, e, x, x, e
 ]
 
-gen = random.randint(1,7)
+class Die:
 
-display = one
+         
 
-if gen == 1:
-  display = one
-elif gen == 2:
-  display = two
-elif gen == 3:
-  display = three
-elif gen == 4:
-  display = four
-elif gen == 5:
-  display = five
-elif gen == 6:
-  display == six 
+  def rollDie(self):
+    gen = random.randint(1,7)
 
-sense.set_pixels(display)
+    display = one
+    rollInt = 0
 
-
-
-while True:
-    acceleration = sense.get_accelerometer_raw()
-    x = acceleration['x']
-    y = acceleration['y']
-    z = acceleration['z']
-
-    x = abs(x)
-    y = abs(y)
-    z = abs(z)
-
-    if x > 1 or y > 1 or z > 1:
-      
-      sleep(1)
-  
-      gen = random.randint(1,7)
-
+    if gen == 1:
       display = one
+      rollInt = 1
+    elif gen == 2:
+      display = two
+      rollInt = 2
+    elif gen == 3:
+      display = three
+      rollInt = 3
+    elif gen == 4:
+      display = four
+      rollInt = 4
+    elif gen == 5:
+      display = five
+      rollInt = 5
+    elif gen == 6:
+      display == six 
+      rollInt = 6
 
-      if gen == 1:
-        display = one
-      elif gen == 2:
-        display = two
-      elif gen == 3:
-        display = three
-      elif gen == 4:
-        display = four
-      elif gen == 5:
-        display = five
-      elif gen == 6:
-        display == six
+    sense.set_pixels(display)
 
-      sense.set_pixels(display)
-      sleep(3)
+    # Return Roll Integer for Score Counting
+    return rollInt
+
+
+GameDice = Die()
+GameDice.rollDie()
+
