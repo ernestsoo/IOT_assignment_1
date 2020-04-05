@@ -1,0 +1,39 @@
+### Assignment 1: Analytics Report
+
+## Ernest Chee Haw Soo (3806077)
+## Pavan Kumar Nanjunda Rao (s3737054)
+
+__________________
+
+Design Discussion
+
+# Task A
+
+- In this task, our team has created a emoji class to encapsulate the display function of each emoji. 
+- Each emoji will be instantiated with unique emoji display. 
+- In order to loop through multiple emojis, a while loop function is used. 
+- To freeze the emoji display for 3 seconds, the sleep module is used.
+- 3 Emoji classes are instantiated and the displayEmoji() function is called.
+
+# Task B
+- In this task, a Monitor class is created to encapsulate the functions of senseing the temperature and display the temperature with the designated colour.
+- While loop and sleep module is used like the above task to  handle the sensing/displaying of temperature every 10 seconds.
+- Monitor class is instantiated and display() function is called.
+
+# Task C
+- For this task, there are two classes Dice and Game.
+- The Dice class is responsible for generating a random number to simulate the roll as well as displaying the dice display to the sense hat screen.
+- The Dice rollDice() function also returns the value of the rolled Dice that can be used in Game class.
+- Next, the game Game class will import the Dice module and create an instance of the Dice class.
+- The startGame() function in the Game class is responsible to handling the flow of the game. (Displaying instructions, rolling Dice, alternating turns, check for a winner)
+- detechShake() function is used to detech when the device is shaken and roll Dice.
+- A while loop is used to managed the turns. (p1, p2, p1, p2 ...)
+- A gameWon condition is used check if score exceeded 30 (scored appended every dice roll) and end game.
+- endGame() function is called when gameWon is set the true and will show the winner on screen as well as saving the game to a csv file.
+- The game class is instantiated with an instance of the Dice class as parameter and startGame() is called.
+
+# Task D
+- All python code aheres to PEP8 style guide.
+- Detailed Commenting of Code.
+- Consistent use of version control.
+- All code adheres to OOP principles.
