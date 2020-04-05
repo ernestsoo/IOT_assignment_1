@@ -10,8 +10,8 @@ sense = SenseHat()
 e = (0, 0, 0) # empty pixels
 x = (255, 0, 0,) # red
 
-# init pixel displays for dice
-one = [
+# init pixel displays for dice (CONST)
+ONE = [
    e, e, e, e, e, e, e, e,
    e, e, e, e, e, e, e, e,
    e, e, e, e, e, e, e, e,
@@ -21,7 +21,7 @@ one = [
    e, e, e, e, e, e, e, e,
    e, e, e, e, e, e, e, e
 ]
-two = [
+TWO = [
    e, e, e, e, e, e, e, e,
    e, e, e, e, e, x, x, e,
    e, e, e, e, e, x, x, e,
@@ -31,7 +31,7 @@ two = [
    e, x, x, e, e, e, e, e,
    e, e, e, e, e, e, e, e
 ]
-three = [
+THREE = [
    e, e, e, e, e, e, x, x,
    e, e, e, e, e, e, x, x,
    e, e, e, e, e, e, e, e,
@@ -41,7 +41,7 @@ three = [
    x, x, e, e, e, e, e, e,
    x, x, e, e, e, e, e, e
 ]
-four = [
+FOUR = [
    e, e, e, e, e, e, e, e,
    e, x, x, e, e, x, x, e,
    e, x, x, e, e, x, x, e,
@@ -51,7 +51,7 @@ four = [
    e, x, x, e, e, x, x, e,
    e, e, e, e, e, e, e, e
 ]
-five = [
+FIVE = [
    x, x, e, e, e, e, x, x,
    x, x, e, e, e, e, x, x,
    e, e, e, e, e, e, e, e,
@@ -61,7 +61,7 @@ five = [
    x, x, e, e, e, e, x, x,
    x, x, e, e, e, e, x, x
 ]
-six = [
+SIX = [
    e, x, x, e, e, x, x, e,
    e, x, x, e, e, x, x, e,
    e, e, e, e, e, e, e, e,
@@ -72,41 +72,36 @@ six = [
    e, x, x, e, e, x, x, e
 ]
 
+
+# Die Class to be imported into game.py
 class Die:
 
          
 
   def rollDie(self):
-    gen = random.randint(1,7)
+    # Generate a random number for Dice Roll
+    gen = random.randint(1,6)
 
-    display = one
-    rollInt = 0
+    display = ONE
 
+    # Set sense hat display based on generated number
     if gen == 1:
-      display = one
-      rollInt = 1
+      display = ONE
     elif gen == 2:
-      display = two
-      rollInt = 2
+      display = TWO
     elif gen == 3:
-      display = three
-      rollInt = 3
+      display = THREE
     elif gen == 4:
-      display = four
-      rollInt = 4
+      display = FOUR
     elif gen == 5:
-      display = five
-      rollInt = 5
+      display = FIVE
     elif gen == 6:
-      display == six 
-      rollInt = 6
+      display = SIX 
 
+
+    # Display results on sense hat
     sense.set_pixels(display)
 
     # Return Roll Integer for Score Counting
-    return rollInt
-
-
-GameDice = Die()
-GameDice.rollDie()
+    return gen
 
