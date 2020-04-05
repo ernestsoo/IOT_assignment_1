@@ -2,6 +2,7 @@
 from sense_hat import SenseHat
 from time import sleep
 
+# Init Sense Hat
 sense = SenseHat()
 
 y = (255, 255, 0) # Yellow
@@ -10,7 +11,8 @@ r = (255, 0, 0) # Red
 
 b = (0, 0, 0) # Black
 
-emoji1 = [
+# Init Emojit Constants
+EMOJI1 = [
    y, y, y, y, y, y, y, y,
    y, y, y, y, y, y, y, y,
    y, b, b, y, y, b, b, y,
@@ -21,8 +23,7 @@ emoji1 = [
    y, y, y, y, y, y, y, y
 ]
 
-
-emoji2 = [
+EMOJI2 = [
    o, o, o, o, o, o, o, o,
    o, o, o, o, o, o, o, o,
    o, b, b, o, o, b, b, o,
@@ -33,8 +34,7 @@ emoji2 = [
    o, o, o, o, o, o, o, o
 ]
 
-
-emoji3 = [
+EMOJI3 = [
    r, r, r, r, r, r, r, r,
    r, r, r, r, r, r, r, r,
    r, b, b, r, r, b, b, r,
@@ -46,10 +46,26 @@ emoji3 = [
 ]
 
 
+# Emoji Class that displays an Emoji based on index
+class Emoji:
+
+  def __init__(self, display):
+    self.display = display
+
+  def displayEmoji(self):
+    sense.set_pixels(self.display)
+
+# Instantiate 3 different emoji variables
+emoji1 = Emoji(EMOJI1)
+emoji2 = Emoji(EMOJI2)
+emoji3 = Emoji(EMOJI3)
+
+
+# Loop and display an emoji every 3 seconds
 while True:
-  sense.set_pixels(emoji1)
+  emoji1.displayEmoji()
   sleep(3)
-  sense.set_pixels(emoji2)
+  emoji2.displayEmoji()
   sleep(3)
-  sense.set_pixels(emoji3)
+  emoji3.displayEmoji()
   sleep(3)
