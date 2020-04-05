@@ -34,7 +34,7 @@ class DiceGame:
   # Function to manage the flow of the game
   def startGame(self):
     # Display Instructions
-    sense.show_message('Game Start', 0.05)
+    sense.show_message('Game Start. Shake Pi to Roll Dice. First to roll over 30 wins.', 0.05)
    
 
     turn = 1
@@ -43,12 +43,12 @@ class DiceGame:
      
       
            
-      sense.show_message('Player '+ str(turn) +' please roll dice', 0.01)
+      sense.show_message('Player '+ str(turn) +' roll dice', 0.02)
 
       self.detectShake(turn)
 
       # Init Winning Score
-      score = 10
+      score = 30
 
       # Check if Game has been won
       if self.p1 > score:
