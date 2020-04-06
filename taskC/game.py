@@ -48,7 +48,7 @@ class DiceGame:
       self.detectShake(turn)
 
       # Init Winning Score
-      score = 30
+      score = 10
 
       # Check if Game has been won
       if self.p1 > score:
